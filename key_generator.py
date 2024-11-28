@@ -14,7 +14,7 @@ pygame.mixer.music.load("labo.mp3")
 pygame.mixer.music.play(-1) 
 
 #генерирует ключ
-def key_generator():
+def generator():
     try:
         key_top = random.choice(alphabet)
         key_bottom = random.choice(alphabet)
@@ -56,10 +56,10 @@ def animate_key():
 # Главное окно
 window = tk.Tk()
 window.title("Генератор ключей")
-window.geometry("600x400")
+window.geometry("800x450")
 
 bg_img = Image.open("lab.jpg") 
-bg_img = bg_img.resize((600, 400), Image.ANTIALIAS)
+bg_img = bg_img.resize((800, 450), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_img)
 
 bg_lbl = tk.Label(window, image=bg_photo)
@@ -76,7 +76,7 @@ key_field = tk.Text(key_frame, font=("Courier", 18), width=10, height=3, state="
 key_field.pack()
 
 # Ключевая кнопка
-btn = tk.Button(window, text="Generate Key", font=("Arial", 16), command=key_generator, bg="#008CBA", fg="white")
+btn = tk.Button(window, text="Cгенерируйте ключ", font=("Arial", 16), command=generator, bg="#008CBA", fg="white")
 btn.pack(pady=10)
 
 window.mainloop()
